@@ -72,7 +72,7 @@ if(isset($_POST['login'])){
                         </div>
                         <div class="form-group">
                             <label for="uname">Username</label>
-                            <input type="text" name="uname" class="form-control" autocomplete="off" placeholder="Enter Username">
+                            <input type="text" name="uname" class="form-control" autocomplete="off" placeholder="Enter Username" required>
                         </div>
                         <div class="form-group">
                             <label for="password">Password</label>
