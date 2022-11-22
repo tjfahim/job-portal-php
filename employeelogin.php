@@ -18,7 +18,6 @@ if(isset($_POST['login'])){
         $result=mysqli_query($con,$query);
         if(mysqli_num_rows($result)==1){
             
-            echo"<script>alert('You are login as employee')</script>";
             session_start();
             $_SESSION['employee']=$username;
             header("location:employee/index.php");

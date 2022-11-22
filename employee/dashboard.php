@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jobs</title>
+    <title>Employee Dashboard</title>
 </head>
 <body>
     
@@ -31,7 +31,7 @@
                 ?>  
                 </div>
                 <div class="col-md-10">
-                    <h4 class="my-2">,mm Dashboard</h4>
+                    <h4 class="my-2">Employee Dashboard</h4>
                     <div class="col-md-12 my-1">
                         <div class="row">
                             <div class="col-md-3 bg-success m-2" style="height: 140px;">
@@ -52,36 +52,23 @@
                                 <div class="col-md-12">
                                     <div class="row">
                                         <div class="col-md-8">
-                                            <h5 class="text-white mt-3" >Book Appointment</h5>
+                                            <h5 class="text-white mt-3" >Applied Job</h5>
                                         </div>
                                         <div class="col-md-4">
-                                            <a href="appointment.php">
+                                            <a href="applied.php">
                                             <i class="fa fa-calendar fa-3x my-4" style="color:white;"></i>
                                             </a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-3 bg-info m-2" style="height: 140px;">
-                                <div class="col-md-12">
-                                    <div class="row">
-                                        <div class="col-md-8">
-                                            <h5 class="text-white mt-3" >My Invoice</h5>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <a href="invoice.php">
-                                            <i class="fas fa-file-invoice-dollar fa-3x my-4" style="color:white;"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            
                         </div>
                      </div>
-                    <div class="col-md-12">
+                    <div class="col-md-12 ml-2">
                             <div class="row">
                                     <div class="col-md-6 jumbotron bg-info ">
-                                    <h5 class="text-white mt-3 text-center" >Send a report</h5>
+                                    <h5 class="text-white text-center" >Send a report</h5>
 
                                     <form action="" method="post">
                                         <?php 
@@ -104,7 +91,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <a href="#">
-                                    <i class="fas fa-file-invoice-dollar fa-3x my-4" style="color:white;"></i>
+                                    <i class="fas fa-file-invoice-dollar fa-3x " style="color:white;"></i>
                                     </a>
                                 </div>
                             </div>

@@ -23,14 +23,31 @@
         <div class="mr-auto"></div>
         <ul class="navbar-nav text-dark">
             <?php
-          
-         
+            if(isset($_SESSION['admin'])){
+                $user=$_SESSION['admin'];
+                echo'<li class="nav-item"><a href="profile.php" class="nav-link text-dark">'.$user.'</a></li>
+                <li class="nav-item"><a href="logout.php" class="nav-link text-dark">Logout</a></li>';
+
+            }else if(isset($_SESSION['employer'])){
+                $user=$_SESSION['employer'];
+                echo'<li class="nav-item"><a href="profile.php" class="nav-link text-dark">'.$user.'</a></li>
+                <li class="nav-item"><a href="logout.php" class="nav-link text-dark">Logout</a></li>';
+            
+            }else if(isset($_SESSION['employee'])){
+                $user=$_SESSION['employee'];
+                echo'<li class="nav-item"><a href="profile.php" class="nav-link text-dark">'.$user.'</a></li>
+                <li class="nav-item"><a href="logout.php" class="nav-link text-dark">Logout</a></li>';
+            }
+            else{
                 echo '   
-                
                 <li class="nav-item"><a href="index.php" class="nav-link text-dark">Home</a></li>
                 <li class="nav-item"><a href="adminlogin.php" class="nav-link text-dark">Admin</a></li>
                 <li class="nav-item"><a href="employerlogin.php" class="nav-link text-dark">Employer</a></li>
                 <li class="nav-item"><a href="employeelogin.php" class="nav-link text-dark mr-3">Employee</a></li>';
+            }
+          
+         
+              
             ?>
          
         </ul>

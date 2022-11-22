@@ -33,11 +33,12 @@ if(isset($_POST['create'])){
         }
     }else if($password != $cpassword){
         $error['e']= "Password Does not match";
+
     }else if($username){
-        $query = "SELECT  username FROM employee WHERE username like '%".$username."%'";
+        $query = "SELECT  username FROM employer WHERE username ='$username'";
         $result = mysqli_query($con,$query);
-        if($result){
-            $error['e']= "This user name already exits";
+        if (mysqli_num_rows($result) > 0) {
+            $error['e'] = "Sorry... username already taken"; 	
         }
     }else if(preg_match('/^[0-9]{11}+$/', $phone)) {
             if($phone[0]!='0' && $phone[1]!='1'){
@@ -51,7 +52,8 @@ if(isset($_POST['create'])){
     $query="INSERT INTO employee(firstname,lastname,username,email,phone,address,cv,password,date_reg) VALUES ('$firstname','$lastname','$username','$email','$phone','$address','$cv_name','$password',NOW())";
     $result=mysqli_query($con,$query);
     if($result){
-        echo"<script>alert('You Have Successfully Register')</script>";
+        session_start();
+        $_SESSION['employee']=$username;
         header("location:employeelogin.php");
 
     }else{
@@ -118,7 +120,7 @@ if(isset($_POST['create'])){
                      
                         <div class="form-group">
                             <label for="phone">Address</label>
-                            <input type="number" name="address" class="form-control" autocomplete="off" placeholder="Enter Phone Number" value="<?php if(isset($_POST['phone'])){echo $_POST['address'];}?>">
+                            <input type="text" name="address" class="form-control" autocomplete="off" placeholder="Enter Phone Number" value="<?php if(isset($_POST['phone'])){echo $_POST['address'];}?>">
                         </div>
                      
                      

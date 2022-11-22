@@ -29,8 +29,9 @@ if(isset($_POST['create'])){
     $query="INSERT INTO employer(companyname,username,email,phone,address,password,date_reg,status) VALUES ('$companyname','$username','$email','$phone','$address','$password',NOW(),'deactive')";
     $result=mysqli_query($con,$query);
     if($result){
-        echo"<script>alert('You Have Successfully Register')</script>";
-        header("location:employerlogin.php");
+        session_start();
+            $_SESSION['employer']=$username;
+        header("location:employeelogin.php");
 
     }else{
         echo"<script>alert('Failed')</script>";
