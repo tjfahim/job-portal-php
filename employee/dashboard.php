@@ -17,7 +17,23 @@
     include("../include/connection.php");
 
     if(isset($_POST['send'])){
-       
+        $title=$_POST['title'];
+        $message=$_POST['message'];
+        $username=$_SESSION['employee'];
+        $error=array();
+
+
+        $q="INSERT INTO report(title, message, username, send_date) VALUES ('$title','$message','$username',NOW())";
+        $re=mysqli_query($con,$q);
+
+        if(empty($title)){
+            $error['r'] = "<div class='alert alert-danger'>Type report title</div>";
+        }else if(empty($message)){
+            $error['r'] = "<div class='alert alert-danger'>Type report message</div>";
+        }else if(isset($re)){
+            $error['r']= "<div class='alert alert-success'>Report Send Successfully</div>";
+            
+        }
     }
     
     ?>
@@ -74,12 +90,7 @@
                                         <?php 
                                         if(isset($error['r'])){
                                             $sh=$error['r'];
-                                            $s= "<div class='alert alert-danger'>$sh</div>";
-                                            echo $s;
-                                        }
-                                        if(isset($re)){
-                                            $s= "<div class='alert alert-success'>Report Send Successfully</div>";
-                                            echo $s;
+                                            echo $sh;
                                         }
                                         ?>
                                         <label for="">Title</label>
