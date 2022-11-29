@@ -12,7 +12,7 @@
             <a href="employer.php" class="list-group-item list-group-item-action bg-light text-center">Employer</a>
             <a href="employee.php" class="list-group-item list-group-item-action bg-light text-center">Employee</a>
             <a href="report.php" class="list-group-item list-group-item-action bg-light text-center">Report</a>
-            <a href="emp_req.php" class="list-group-item list-group-item-action bg-light text-center">Employer Request</a>
+            <a href="employer_req.php" class="list-group-item list-group-item-action bg-light text-center">Employer Request</a>
             <a href="job.php" class="list-group-item list-group-item-action bg-light text-center">Total Job</a>
         </div>
 </body>

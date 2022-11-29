@@ -28,19 +28,20 @@ if(isset($_POST['create'])){
             $error['e']= "CV Already Exits.Please Change Name";
         }else if($ext!='pdf'){
             $error['e']= "Only pdf file allowed";
-        }else if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
-            echo "The file ". htmlspecialchars( basename( $_FILES["file"]["name"])). " has been uploaded.";
         }
-    }else if($password != $cpassword){
+    }
+    if($password != $cpassword){
         $error['e']= "Password Does not match";
 
-    }else if($username){
+    }
+    if($username){
         $query = "SELECT  username FROM employer WHERE username ='$username'";
         $result = mysqli_query($con,$query);
         if (mysqli_num_rows($result) > 0) {
             $error['e'] = "Sorry... username already taken"; 	
         }
-    }else if(preg_match('/^[0-9]{11}+$/', $phone)) {
+    }
+    if(preg_match('/^[0-9]{11}+$/', $phone)) {
             if($phone[0]!='0' && $phone[1]!='1'){
                 $error['e']= "Start with 01 must";
             }
@@ -49,6 +50,11 @@ if(isset($_POST['create'])){
    
 
     if(count($error)==0){
+        if($cv){
+             if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
+                echo "The file ". htmlspecialchars( basename( $_FILES["file"]["name"])). " has been uploaded.";
+            }
+        }
     $query="INSERT INTO employee(firstname,lastname,username,email,phone,address,cv,password,date_reg) VALUES ('$firstname','$lastname','$username','$email','$phone','$address','$cv_name','$password',NOW())";
     $result=mysqli_query($con,$query);
     if($result){
@@ -59,6 +65,7 @@ if(isset($_POST['create'])){
     }else{
         echo"<script>alert('Failed')</script>";
     }
+    echo 'no error';
 
     }
  
@@ -126,7 +133,7 @@ if(isset($_POST['create'])){
                      
                         <div class="form-group">
                             <label for="phone">Cv (Only pdf file allowed and maximum size 4mb)</label>
-                            <input type="file" name="file" value="<?php if(isset($_POST['phone'])){echo $_POST['address'];}?>" >
+                            <input type="file" name="file" value="<?php if(isset($_POST['cv'])){echo $_POST['cv'];}?>" required>
                         </div>
                         <div class="form-group">
                             <label for="password">Password</label>

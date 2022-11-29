@@ -20,7 +20,7 @@ if(isset($_POST['login'])){
             
             session_start();
             $_SESSION['employee']=$username;
-            header("location:employee/index.php");
+            header("location:employee/dashboard.php");
             exit();
 
         }else{

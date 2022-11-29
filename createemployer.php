@@ -31,7 +31,7 @@ if(isset($_POST['create'])){
     if($result){
         session_start();
             $_SESSION['employer']=$username;
-        header("location:employeelogin.php");
+        header("location:employerlogin.php");
 
     }else{
         echo"<script>alert('Failed')</script>";
@@ -92,7 +92,7 @@ if(isset($_POST['create'])){
                      
                         <div class="form-group">
                             <label for="phone">Address</label>
-                            <input type="number" name="address" class="form-control" autocomplete="off" placeholder="Enter Phone Number" value="<?php if(isset($_POST['phone'])){echo $_POST['address'];}?>">
+                            <input type="number" name="address" class="form-control" autocomplete="off" placeholder="Enter Address" value="<?php if(isset($_POST['address'])){echo $_POST['address'];}?>">
                         </div>
                        
                         <div class="form-group">

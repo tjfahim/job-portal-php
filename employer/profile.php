@@ -10,7 +10,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employee Profile</title>
+    <title>Employer Profile</title>
 </head>
 <body>
     
@@ -18,8 +18,8 @@
     include("../include/header.php");
     include("../include/connection.php");
 
-    $employee = $_SESSION['employee'];
-    $query = "SELECT * FROM employee WHERE username='$employee'";
+    $employer = $_SESSION['employer'];
+    $query = "SELECT * FROM employer WHERE username='$employer'";
     $res = mysqli_query($con,$query);
     while($row=mysqli_fetch_array($res)){
         $username=$row['username'];
@@ -43,47 +43,48 @@
 
                          
                                 <br>
-                                    <div class="my-3">
-                                        <table class="table table-bordered">
-                                        <?php 
-                                            $qu = "SELECT * FROM employee WHERE username='$employee'";
-                                            $re = mysqli_query($con,$query);
-                                            $ro=mysqli_fetch_array($re);
-                                            
-                                        ?>
-
-                                            <tr>
-                                                <th colspan="2" class="text-center">Details</th>
-                                            </tr>
-
-                                            <tr>
-                                                <td>First Name</td>
-                                                <td><?php echo $ro['firstname']?></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Last Name</td>
-                                                <td><?php echo $ro['lastname']?></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Email</td>
-                                                <td><?php echo $ro['email']?></td>
-                                            </tr>
+                                <div class="my-3">
+                                    <table class="table table-bordered">
+                                    <?php 
+                                        $qu = "SELECT * FROM employer WHERE username='$employer'";
+                                        $re = mysqli_query($con,$query);
+                                        $ro=mysqli_fetch_array($re);
                                         
-                                            <tr>
-                                                <td>Phone Number</td>
-                                                <td><?php echo $ro['phone']?></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Address</td>
-                                                <td><?php echo $ro['address']?></td>
-                                            </tr>
-                                
-                                            <tr>
-                                                <td>Date Registration</td>
-                                                <td><?php echo $ro['date_reg']?></td>
-                                            </tr>
-                                        </table>
-                                    </div>
+                                    ?>
+
+                                        <tr>
+                                            <th colspan="2" class="text-center">Details</th>
+                                        </tr>
+
+                                      
+                                        <tr>
+                                            <td>Company Name</td>
+                                            <td><?php echo $ro['companyname']?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>User Name</td>
+                                            <td><?php echo $ro['username']?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Email</td>
+                                            <td><?php echo $ro['email']?></td>
+                                        </tr>
+                                       
+                                        <tr>
+                                            <td>Phone Number</td>
+                                            <td><?php echo $ro['phone']?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Address</td>
+                                            <td><?php echo $ro['address']?></td>
+                                        </tr>
+                              
+                                        <tr>
+                                            <td>Date Registration</td>
+                                            <td><?php echo $ro['date_reg']?></td>
+                                        </tr>
+                                    </table>
+                                </div>
                                 <div class="mt-4">
                                 <form action="" method="post">
                                     <?php 
@@ -93,7 +94,7 @@
                                         $cnf_pass = $_POST['cnf_password'];
 
                                         $error=array();
-                                        $old=mysqli_query($con,"SELECT * FROM employee WHERE username='$employee'");
+                                        $old=mysqli_query($con,"SELECT * FROM employer WHERE username='$employer'");
                                         $row=mysqli_fetch_array($old);
                                         $pass=$row['password'];                                        
 
@@ -110,7 +111,7 @@
                                         }
 
                                         if(count($error)==0){
-                                            $query="UPDATE employee SET password='$new_pass' WHERE username='$employee'";
+                                            $query="UPDATE employer SET password='$new_pass' WHERE username='$employer'";
                                             mysqli_query($con,$query);
                                             $succ="<h4 class='alert alert-success'>Password change successfully</h4>";
                                             echo $succ;
@@ -124,7 +125,6 @@
                                         $sh=$error['p'];
                                         $show="<h4 class='alert alert-danger'>$sh</h4>";
                                         echo $show;
-
                                     }
                                     ?>
                                     <div class="form-group">
@@ -147,17 +147,16 @@
                             <div class="col-md-6">
                                 <?php
                                     if(isset($_POST['change'])){
-                                        $fname = $_POST['fname'];
-                                        $lname = $_POST['lname'];
+                                        $cname = $_POST['cname'];
                                         $uname = $_POST['uname'];
                                         $email = $_POST['email'];
                                         $address = $_POST['address'];
                                         $phone = $_POST['phone'];
                                         
-                                        $query = "UPDATE employee SET firstname='$fname',lastname='$lname',username='$uname',email='$email',phone='$phone',address='$address' WHERE username='$employee'";
+                                        $query = "UPDATE employer SET companyname='$cname',username='$uname',email='$email',phone='$phone',address='$address' WHERE username='$employer'";
                                         $res = mysqli_query($con,$query);
                                         if($res){
-                                            $_SESSION['employee']=$uname;
+                                            $_SESSION['employer']=$uname;
                                             echo "<script>alert('Update successfully')</script>";
 
                                         }
@@ -170,13 +169,10 @@
 
                                <br>
                                 <div class="form-group">
-                                    <label for="">First Name</label>
-                                    <input type="text" name="fname" value="<?php echo $ro['firstname'] ?>" class="form-control">
+                                    <label for="">Company Name</label>
+                                    <input type="text" name="cname" value="<?php echo $ro['companyname'] ?>" class="form-control">
                                 </div>
-                                <div class="form-group">
-                                    <label for="">Last Name</label>
-                                    <input type="text" name="lname" value="<?php echo $ro['lastname'] ?>" class="form-control">
-                                </div>
+                               
                                 <div class="form-group">
                                     <label for="">User Name</label>
                                     <input type="text" name="uname" value="<?php echo $ro['username'] ?>" class="form-control">
