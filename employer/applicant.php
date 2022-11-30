@@ -14,12 +14,7 @@
     include("../include/header.php");
     include("../include/connection.php");
 
-    if(isset($_POST['remove'])){
 
-        $id= $_POST['id'];
-        $qu= "DELETE FROM applyid_job WHERE applyid_job.id = $id";
-        $res=mysqli_query($con,$qu);    
-    }
     
     ?>
 
@@ -35,31 +30,24 @@
                     <h4 class="my-2">Job Applyid</h4>
 
                     <?php
-                         $employee=$_SESSION['employee'];
-                         $q="SELECT * FROM employee WHERE username= '$employee'";
+                         $q="SELECT * FROM applyid_job,jobs,employee,employer WHERE applyid_job.employee_id=employee.id AND applyid_job.jobs_id=jobs.id AND jobs.username=employer.id" ;
                          $r=mysqli_query($con,$q);
-                         $ro=mysqli_fetch_array($r);
-                         $employee_id=$ro['id'];
-                        $qu= "SELECT * FROM applyid_job,jobs WHERE employee_id='$employee_id' AND applyid_job.jobs_id=jobs.id ";
-                        $res=mysqli_query($con,$qu);
 
                         $output="";
 
                         $output .="
                         <table class='table table-bordered'>
                             <tr>
-                                <th>Job Title</th>
-                                <th>Submitted Email</th>
-                                <th>Submitted Phone Number</th>
-                                <th>Submitted Address</th>
-                                <th>Submitted CV Name</th>
-                                <th>Applyid Date </th>
-                                <th>Action</th>
+                            <th>Job title</th>
+                                <th>Employee Email</th>
+                                <th>Employee Phone Number</th>
+                                <th>Employee Address</th>
+                                <th>Employee CV</th>
                             </tr>
 
                         ";
 
-                        if(mysqli_num_rows($res)<1){
+                        if(mysqli_num_rows($r)<1){
                             $output .="
                             <tr>
                                 <td colspan='9' class='text-center'>Empty</td>
@@ -68,12 +56,8 @@
                             ;
                         }
 
-                        while($row = mysqli_fetch_array($res)){
-                            $id=$row['id'];
-                            $n="SELECT id FROM applyid_job WHERE jobs_id='$id'";
-                            $n=mysqli_query($con,$n);
-                            $n=mysqli_fetch_array($n);
-                            $n=$n['id'];
+                        while($row = mysqli_fetch_array($r)){
+                          
 
                             $output .="
                             <tr>
@@ -83,14 +67,6 @@
                                 <td>".$row['phone']."</td>
                                 <td>".$row['address']."</td>
                                 <td>".$row['cv']."</td>
-                                <td>".$row['date_reg']."</td>                        
-                                <td>
-                                <form method='post'>
-                                <input type='hidden' name='id' value=$n>
-                                <button name='remove' class='btn btn-danger btn-sm ' type='submit'>Delete</button>
-                                </form>
-                                </td>                        
-                        
                             ";
                         }
 
@@ -101,10 +77,7 @@
                         echo $output;
                         ?>
                 </div>
-                <?php
-                $a=mysqli_fetch_array($res);
-                echo $a['title'];
-                ?>
+                
             </div>
         </div>
     </div>

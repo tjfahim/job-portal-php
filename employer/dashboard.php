@@ -16,25 +16,7 @@
     include("../include/header.php");
     include("../include/connection.php");
 
-    // if(isset($_POST['send'])){
-    //     $title=$_POST['title'];
-    //     $message=$_POST['message'];
-    //     $username=$_SESSION['employer'];
-    //     $error=array();
-
-
-    //     $q="INSERT INTO report(title, message, username, send_date) VALUES ('$title','$message','$username',NOW())";
-    //     $re=mysqli_query($con,$q);
-
-    //     if(empty($title)){
-    //         $error['r'] = "<div class='alert alert-danger'>Type report title</div>";
-    //     }else if(empty($message)){
-    //         $error['r'] = "<div class='alert alert-danger'>Type report message</div>";
-    //     }else if(isset($re)){
-    //         $error['r']= "<div class='alert alert-success'>Report Send Successfully</div>";
-            
-    //     }
-    // }
+    
     
     ?>
 
@@ -71,7 +53,7 @@
                                             <h5 class="text-white mt-3" >Applicant List</h5>
                                         </div>
                                         <div class="col-md-4">
-                                            <a href="applied.php">
+                                            <a href="applicant.php">
                                             <i class="fa fa-calendar fa-3x my-4" style="color:white;"></i>
                                             </a>
                                         </div>

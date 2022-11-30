@@ -93,8 +93,22 @@
                                             </tr>
                                             
                                             <tr>
-                                            <td colspan="2"> <a href="apply.php?id=<?php echo $_GET['id']?>" class="btn btn-primary">Apply</a></td>
+                                            <td colspan="2"> 
+                                            <?php
+                                             $job_id=$_GET['id'];
+                                            $qu="SELECT * FROM applyid_job WHERE jobs_id='$job_id' ";
+                                            $re=mysqli_query($con,$qu);
+                                            $re=mysqli_fetch_row($re);
+                                            if($re!=0){
+                                                echo 'Already applied';
+                                            }
+                                               
+                                            else echo "<a href='apply.php?id=".$_GET['id']." class='btn btn-primary'>
+                                            "."Apply</a>";
                                             
+                                            ?> </td>
+                                                                           
+
 
                                             </tr>
                                             

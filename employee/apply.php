@@ -40,6 +40,9 @@
                         <div class="row">
                             <div class="col-md-9">
                                 <?php
+
+                                    
+
                                     if(isset($_POST['apply'])){
                                         $target_dir = "../cv/";
                                         $target_file = $target_dir . basename($_FILES["file"]["name"]);
