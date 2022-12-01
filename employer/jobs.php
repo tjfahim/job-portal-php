@@ -45,7 +45,6 @@
                             $result=mysqli_query($con,$s);
                         $re=mysqli_fetch_array($result);
                         $username= $re['id']; 
-                        echo $username;
                         $qu= "SELECT * FROM jobs WHERE username='$username' ORDER BY date_reg DESC";
                         $res=mysqli_query($con,$qu);
 

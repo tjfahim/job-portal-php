@@ -136,15 +136,15 @@ if(isset($_POST['create'])){
                         </div>
                         <div class="form-group">
                             <label for="">Job Location *</label>
-                            <input type="text" name="location" class="form-control" autocomplete="off" placeholder="Enter Job Location" value="<?php if(isset($_POST['location'])){echo $_POST['location'];}?>">
+                            <input type="text" name="location" class="form-control" autocomplete="off" placeholder="Enter Job Location" value="<?php if(isset($_POST['location'])){echo $_POST['location'];}?>" required>
                         </div>
                         <div class="form-group">
                             <label for="">Salary *</label>
-                            <input type="text" name="salary" class="form-control" autocomplete="off" placeholder="Enter Salary" value="<?php if(isset($_POST['salary'])){echo $_POST['salary'];}?>">
+                            <input type="text" name="salary" class="form-control" autocomplete="off" placeholder="Enter Salary" value="<?php if(isset($_POST['salary'])){echo $_POST['salary'];}?>" required>
                         </div>
                         <div class="form-group">
                             <label for="">Deadline *</label>
-                            <input type="date" name="deadline" class="form-control" autocomplete="off" value="<?php if(isset($_POST['deadline'])){echo $_POST['deadline'];}?>">
+                            <input type="date" name="deadline" class="form-control" autocomplete="off" value="<?php if(isset($_POST['deadline'])){echo $_POST['deadline'];}?>" required>
                         </div>
                         <input type="submit" name="create" class="btn btn-success">
                     </form>
