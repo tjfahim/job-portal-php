@@ -91,8 +91,8 @@ if(isset($_POST['create'])){
                         </div>
                      
                         <div class="form-group">
-                            <label for="phone">Address</label>
-                            <input type="number" name="address" class="form-control" autocomplete="off" placeholder="Enter Address" value="<?php if(isset($_POST['address'])){echo $_POST['address'];}?>">
+                            <label for="">Address</label>
+                            <input type="text" name="address" class="form-control" autocomplete="off" placeholder="Enter Address" value="<?php if(isset($_POST['address'])){echo $_POST['address'];}?>">
                         </div>
                        
                         <div class="form-group">

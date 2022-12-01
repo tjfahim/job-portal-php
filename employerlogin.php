@@ -14,8 +14,10 @@ if(isset($_POST['login'])){
     }
    
     if(count($error)==0){
-        $query="select * from employer where username='$username' and password='$password'";
+        $query="SELECT * FROM employer WHERE username='$username' AND password='$password' AND status='active'";
         $result=mysqli_query($con,$query);
+        $q="SELECT * FROM employer WHERE username='$username' AND password='$password' AND status='deactive'";
+        $res=mysqli_query($con,$q);
         if(mysqli_num_rows($result)==1){
             
             session_start();
@@ -23,15 +25,24 @@ if(isset($_POST['login'])){
             header("location:employer/dashboard.php");
             exit();
 
-        }else{
+        }else if(mysqli_num_rows($res)==1){
+            
+           
+            echo '<script>alert("Your Account Does not Approve Yet, Try Again Later")</script>
+            ';
+ 
+         }
+        else{
            
             echo"<script>alert('Invalid Username or Password')</script>";
         }
+
+       
+        
     }
 }
 
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">

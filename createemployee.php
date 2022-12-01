@@ -126,13 +126,13 @@ if(isset($_POST['create'])){
                         </div>
                      
                         <div class="form-group">
-                            <label for="phone">Address</label>
+                            <label for="">Address</label>
                             <input type="text" name="address" class="form-control" autocomplete="off" placeholder="Enter Phone Number" value="<?php if(isset($_POST['phone'])){echo $_POST['address'];}?>">
                         </div>
                      
                      
                         <div class="form-group">
-                            <label for="phone">Cv (Only pdf file allowed and maximum size 4mb)</label>
+                            <label for="">Cv (Only pdf file allowed and maximum size 4mb)</label>
                             <input type="file" name="file" value="<?php if(isset($_POST['cv'])){echo $_POST['cv'];}?>" required>
                         </div>
                         <div class="form-group">
