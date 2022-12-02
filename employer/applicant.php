@@ -22,6 +22,8 @@ $pe=$pem['id'];
     
     ?>
 
+
+
     <div class="container-fluid">
         <div class="col-md-12">
             <div class="row">
@@ -34,10 +36,9 @@ $pe=$pem['id'];
                     <h4 class="my-2">Job Applyid</h4>
 
                     <?php
-
-
                          $q="SELECT jobs.title,jobs.category,jobs.date_reg as jobs_date,applyid_job.email as app_email,applyid_job.phone as app_phn,applyid_job.cv as app_cv,applyid_job.date_reg as app_date FROM applyid_job,jobs WHERE applyid_job.jobs_id=jobs.id AND applyid_job.company_id='$pe'" ;
                          $r=mysqli_query($con,$q);
+
                      
                         $output="";
 
@@ -65,7 +66,8 @@ $pe=$pem['id'];
                         }
 
                         while($row = mysqli_fetch_array($r)){
-                          
+                          $ap_cv=$row['app_cv'];
+                            $fil="../cv/$ap_cv";
 
                             $output .="
                             <tr>
@@ -75,7 +77,8 @@ $pe=$pem['id'];
                                 <td>".$row['jobs_date']."</td>
                                 <td>".$row['app_email']."</td>
                                 <td>".$row['app_phn']."</td>
-                                <td>".$row['app_cv']."</td>
+                                <td><a href='download.php?file=$fil'>
+                                ".$row['app_cv']."</a></td>
                                 <td>".$row['app_date']."</td>
                                
                             ";

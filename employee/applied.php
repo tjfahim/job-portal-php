@@ -8,6 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Job Applied</title>
+    
 </head>
 <body>
     <?php 
@@ -74,6 +75,8 @@
                             $n=mysqli_query($con,$n);
                             $n=mysqli_fetch_array($n);
                             $n=$n['id'];
+                            $ap_cv=$row['cv'];
+                            $fil="../cv/$ap_cv";
 
                             $output .="
                             <tr>
@@ -82,7 +85,8 @@
                                 <td>".$row['email']."</td>
                                 <td>".$row['phone']."</td>
                                 <td>".$row['address']."</td>
-                                <td>".$row['cv']."</td>
+                                <td><a href='download.php?file=$fil'>
+                                ".$row['cv']."</a></td>
                                 <td>".$row['date_reg']."</td>                        
                                 <td>
                                 <form method='post'>
@@ -100,11 +104,11 @@
                         ";
                         echo $output;
                         ?>
+                     
+                    
+             
                 </div>
-                <?php
-                $a=mysqli_fetch_array($res);
-                echo $a['title'];
-                ?>
+                        
             </div>
         </div>
     </div>
