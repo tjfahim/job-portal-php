@@ -27,12 +27,19 @@
                 <?php
                     include('sidenav.php');
                     $job_id=$_GET['id'];
-
+                    $c_id="SELECT * FROM jobs WHERE jobs.id= '$job_id'";
+                    $c_id=mysqli_query($con,$c_id);
+                    $ro=mysqli_fetch_array($c_id);
+                    $c_id=$ro['username'];
                     $employee=$_SESSION['employee'];
                     $q="SELECT * FROM employee WHERE username= '$employee'";
                     $r=mysqli_query($con,$q);
                     $ro=mysqli_fetch_array($r);
                     $employee_id=$ro['id'];
+                    $cv=$ro['cv'];
+                    $target = "../cv/$cv";
+
+
                 ?>  
                 </div>
                 <div class="col-md-10">
@@ -81,7 +88,7 @@
                                                     echo "The file ". htmlspecialchars( basename( $_FILES["file"]["name"])). " has been uploaded.";
                                                 }
                                             }
-                                        $query="INSERT INTO applyid_job(email,phone,address,cv,employee_id,jobs_id,date_reg) VALUES ('$email','$phone','$address','$cv_name','$employee_id','$job_id',NOW())";
+                                        $query="INSERT INTO applyid_job(email,phone,address,cv,employee_id,jobs_id,company_id,date_reg) VALUES ('$email','$phone','$address','$cv_name','$employee_id','$job_id','$c_id',NOW())";
                                         $result=mysqli_query($con,$query);
                                         if($result){
                                             echo"<script>alert('Successfully Applyid')</script>";
@@ -121,8 +128,9 @@
                             
                                 <div class="form-group">
                                     <label for="">Cv (Only pdf file allowed and maximum size 4mb)</label>
-                                    <input type="file" name="file" value="" class="form-control" required>
+                                    <input type="file" name="file" value="<?php if(isset( $target)) echo  $target ?>" class="form-control" required>
                                 </div>
+
                                 <input type="submit" name="apply" value="Update" class="btn btn-success">
                      
 

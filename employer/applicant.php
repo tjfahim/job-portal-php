@@ -14,7 +14,11 @@
     include("../include/header.php");
     include("../include/connection.php");
 
-
+$empl=$_SESSION['employer'];
+$emp="SELECT * FROM employer WHERE username='$empl'";
+$em=mysqli_query($con,$emp);
+$pem=mysqli_fetch_array($em);
+$pe=$pem['id'];
     
     ?>
 
@@ -30,19 +34,23 @@
                     <h4 class="my-2">Job Applyid</h4>
 
                     <?php
-                         $q="SELECT * FROM applyid_job,jobs,employee,employer WHERE applyid_job.employee_id=employee.id AND applyid_job.jobs_id=jobs.id AND jobs.username=employer.id" ;
-                         $r=mysqli_query($con,$q);
 
+
+                         $q="SELECT jobs.title,jobs.category,jobs.date_reg as jobs_date,applyid_job.email as app_email,applyid_job.phone as app_phn,applyid_job.cv as app_cv,applyid_job.date_reg as app_date FROM applyid_job,jobs WHERE applyid_job.jobs_id=jobs.id AND applyid_job.company_id='$pe'" ;
+                         $r=mysqli_query($con,$q);
+                     
                         $output="";
 
                         $output .="
                         <table class='table table-bordered'>
                             <tr>
                             <th>Job title</th>
+                            <th>Category</th>
+                            <th>Job Post Date</th>
                                 <th>Employee Email</th>
                                 <th>Employee Phone Number</th>
-                                <th>Employee Address</th>
                                 <th>Employee CV</th>
+                                <th>Date Apply</th>
                             </tr>
 
                         ";
@@ -63,10 +71,13 @@
                             <tr>
                                
                                 <td>".$row['title']."</td>
-                                <td>".$row['email']."</td>
-                                <td>".$row['phone']."</td>
-                                <td>".$row['address']."</td>
-                                <td>".$row['cv']."</td>
+                                <td>".$row['category']."</td>
+                                <td>".$row['jobs_date']."</td>
+                                <td>".$row['app_email']."</td>
+                                <td>".$row['app_phn']."</td>
+                                <td>".$row['app_cv']."</td>
+                                <td>".$row['app_date']."</td>
+                               
                             ";
                         }
 
