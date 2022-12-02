@@ -30,15 +30,25 @@
                 </div>
                 <div class="col-md-10">
                     <?php
+                    if(isset($_GET['page_no'])){
+                        $get_page_no=$_GET['page_no'];
+                        $offset=($get_page_no-1) * 6;
+                        $get_page_inc=$get_page_no + 1;
+                        $get_page_dec=$get_page_no - 1;
 
-                        $qu= "SELECT jobs.title,jobs.id,jobs.vacancy,jobs.location,jobs.salary,jobs.deadline,employer.companyname FROM jobs,employer WHERE employer.id = jobs.username ";
+                    }else {
+                        $offset=0;
+                        $get_page_inc=2;
+                        $get_page_dec=1;
+                    }
+                    
+                        
+                        $qu= "SELECT jobs.title,jobs.id,jobs.vacancy,jobs.location,jobs.salary,jobs.deadline,employer.companyname FROM jobs,employer WHERE employer.id = jobs.username LIMIT 6 OFFSET $offset";
+                        $quu= "SELECT jobs.title,jobs.id,jobs.vacancy,jobs.location,jobs.salary,jobs.deadline,employer.companyname FROM jobs,employer WHERE employer.id = jobs.username ";
                         $res=mysqli_query($con,$qu);
-                        $r=mysqli_fetch_array($res);
-                        // $username=$r['username'];
-                     
-                        // $cname="SELECT companyname FROM employer WHERE username='$username' ";
-                        // $cname=mysqli_query($con,$cname);
-                        // $cname=mysqli_fetch_array($cname);
+                        $for_pagi=mysqli_query($con,$quu);
+                        $for_pag=mysqli_num_rows($for_pagi);
+                        $divided=ceil($for_pag/6);
                         $output="";
 
                         $output .="
@@ -50,7 +60,7 @@
                         if(mysqli_num_rows($res)<1){
                             $output .="
                             <tr>
-                                <td colspan='8' class='text-center'>No Employee Available.</td>
+                                <td  class='text-center'>No Job Available.</td>
                             </tr>
                             "
                             ;
@@ -81,6 +91,19 @@
 
                         
                         echo $output;
+                        if($get_page_dec==0){
+                            echo "<a  class='btn btn-primary'><</a>";
+                        }else{
+
+                            echo "<a href='index.php?page_no=$get_page_dec' class='btn btn-primary' type='button' disabled><</a>";
+                        }
+                        if($get_page_inc>$divided){
+                            echo "<a  class='btn btn-primary'>></a>";
+
+                        }else{
+                            
+                            echo "<a href='index.php?page_no=$get_page_inc' class='btn btn-primary'>></a>";
+                        }
                         ?>
                 </div>
                    
