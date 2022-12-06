@@ -15,8 +15,8 @@
 <body>
     
     <?php 
-    include("../include/header.php");
-    include("../include/connection.php");
+    include("include/header.php");
+    include("include/connection.php");
 
   
     
@@ -26,9 +26,7 @@
         <div class="col-md-12">
             <div class="row">
                 <div class="col-md-2" style="margin-left: -30px;">
-                <?php
-                    include('sidenav.php');
-                ?>  
+                
                 </div>
                 <div class="col-md-10">
                     <div class="col-md-12">
@@ -96,15 +94,10 @@
                                             <td colspan="2"> 
                                             <?php
                                              $job_id=$_GET['id'];
-                                            $qu="SELECT * FROM applyid_job WHERE jobs_id='$job_id' ";
-                                            $re=mysqli_query($con,$qu);
-                                            $re=mysqli_fetch_row($re);
-                                            if($re!=0){
-                                                echo "<p class='text-danger'>Already applied</p>";
-                                            }
-                                               
-                                            else echo "<a  href='apply.php?id=".$_GET['id']." class='btn btn-primary'>
+                                            
+                                            echo "<a href='employeelogin.php?id=".$_GET['id']." class='btn btn-primary'>
                                             "."Apply</a>";
+                                            
                                             
                                             ?> </td>
                                                                            

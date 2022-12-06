@@ -131,7 +131,17 @@
                                     <input type="file" name="file" value="<?php if(isset( $target)) echo  $target ?>" class="form-control" required>
                                 </div>
 
-                                <input type="submit" name="apply" value="Update" class="btn btn-success">
+                                <?php
+                                             $job_id=$_GET['id'];
+                                            $qu="SELECT * FROM applyid_job WHERE jobs_id='$job_id' ";
+                                            $re=mysqli_query($con,$qu);
+                                            $re=mysqli_fetch_row($re);
+                                            if($re!=0){
+                                                echo "<p class='text-danger'>Already applied</p>";
+                                            }
+                                            else echo "<input type='submit' name='apply' value='Apply' class='btn btn-success'>";
+                                            ?> 
+                                <!-- <input type="submit" name="apply" value="Apply" class="btn btn-success"> -->
                      
 
                                 </form>

@@ -20,7 +20,12 @@ if(isset($_POST['login'])){
             
             session_start();
             $_SESSION['employee']=$username;
-            header("location:employee/dashboard.php");
+            if(isset($_GET['id'])){
+                $job_id=$_GET['id'];
+                header("location:employee/apply.php?id=$job_id");
+
+            }
+            else header("location:employee/dashboard.php");
             exit();
 
         }else{
@@ -78,7 +83,9 @@ if(isset($_POST['login'])){
                             <input type="password" name="password" class="form-control" placeholder="Enter Password">
                         </div>
                         <input type="submit" name="login" class="btn btn-success">
-                        <div class="mt-2">Dont have an account? <a href="createemployee.php" class="text-primary mt-2">Create Account</a></div>
+                        <div class="mt-2">Dont have an account? <a href="createemployee.php?id=<?php if(isset($_GET['id'])){
+                            echo $_GET['id'];
+                        }  ?>" class="text-primary mt-2">Create Account</a></div>
                     </form>
                 </div>
             </div>

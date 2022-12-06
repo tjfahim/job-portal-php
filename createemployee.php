@@ -60,6 +60,11 @@ if(isset($_POST['create'])){
     if($result){
         session_start();
         $_SESSION['employee']=$username;
+        if(isset($_GET['id'])){
+            $job_id=$_GET['id'];
+            header("location:employeelogin/apply.php?id=$job_id");
+
+        }
         header("location:employeelogin.php");
 
     }else{
