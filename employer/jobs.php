@@ -51,7 +51,7 @@
                         $output="";
 
                         $output .="
-                        <table class='table table-bordered'>
+                        <table class='table table-bordered table-sm'>
                             <tr>
                                 <th>Job Title</th>
                                 <th>Category</th>
