@@ -26,9 +26,15 @@
                 <div class="col-md-2" style="margin-left: -30px;">
                 <?php
                     include('sidenav.php');
+                    
+                
                 ?>  
                 </div>
-                <div class="col-md-10">
+                <div class="col-md-10 " style="margin-bottom: 59px;margin-top:20px">
+                    <form action="search.php" style="margin-bottom: 19px" method="GET">
+                        <input type="text" name="query" />
+                        <input type="submit" value="Search" />
+                    </form>
                     <?php
                     if(isset($_GET['page_no'])){
                         $get_page_no=$_GET['page_no'];
@@ -43,8 +49,8 @@
                     }
                     
                         
-                        $qu= "SELECT jobs.title,jobs.id,jobs.vacancy,jobs.location,jobs.salary,jobs.deadline,employer.companyname FROM jobs,employer WHERE employer.id = jobs.username LIMIT 6 OFFSET $offset";
-                        $quu= "SELECT jobs.title,jobs.id,jobs.vacancy,jobs.location,jobs.salary,jobs.deadline,employer.companyname FROM jobs,employer WHERE employer.id = jobs.username ";
+                        $qu= "SELECT jobs.title,jobs.id,jobs.category,jobs.vacancy,jobs.location,jobs.salary,jobs.deadline,employer.companyname FROM jobs,employer WHERE employer.id = jobs.username LIMIT 6 OFFSET $offset";
+                        $quu= "SELECT jobs.title,jobs.id,jobs.category,jobs.vacancy,jobs.location,jobs.salary,jobs.deadline,employer.companyname FROM jobs,employer WHERE employer.id = jobs.username ";
                         $res=mysqli_query($con,$qu);
                         $for_pagi=mysqli_query($con,$quu);
                         $for_pag=mysqli_num_rows($for_pagi);
@@ -70,12 +76,13 @@
                             $job_id=$row['id'];
                             $output .="
                             <div class=' '>
-                            <a href='jobdetails.php?id=$job_id' class='text-none text-decoration-none' >
+                            <a href='jobdetails.php?id=$job_id' class='text-none text-decoration-none ' >
                                 <div class='mask' style='background-color: rgba(57, 192, 237, 0.2)'>
                                 <div class='card'>
                                 <div class='card-header'>
                                 <h4 class='card-title '>".$row['title']."</h4>
                                 <h5 class='card-title text-dark'>".$row['companyname']."</h5>
+                                <p class='card-title text-dark'>Category:".$row['category']."</p>
                                     <p class='card-text text-dark'>Vacancy: ".$row['vacancy']."</p>
                                     <p class='card-text text-dark'>Location: ".$row['location']."</p>
                                     <p class='card-text text-dark'>Salary: ".$row['salary']."</p>
@@ -88,22 +95,34 @@
                         
                             ";
                         }
+                       
 
+                            echo $output;
                         
-                        echo $output;
-                        if($get_page_dec==0){
-                            echo "<a  class='btn btn-primary'><</a>";
-                        }else{
 
-                            echo "<a href='index.php?page_no=$get_page_dec' class='btn btn-primary' type='button' disabled><</a>";
+                        if($for_pag!=0){
+                            if($get_page_dec==0){
+                                echo "<a  class='btn btn-primary mr-2'><</a>";
+                            }else{
+    
+                                echo "<a href='index.php?page_no=$get_page_dec' class='btn btn-primary mr-2' type='button' disabled><</a>";
+                            }
+                            for($i=2;$i<=$divided;$i++){
+                                echo "<a href='index.php?page_no=$i' class='btn btn-primary mr-2'>$i</a>";
+    
+                                
+                            }
+                            if($get_page_inc>$divided){
+                                echo "<a  class='btn btn-primary mr-2'>></a>";
+    
+                            }else{
+                                
+                                echo "<a href='index.php?page_no=$get_page_inc' class='btn btn-primary'>></a>";
+                            }
                         }
-                        if($get_page_inc>$divided){
-                            echo "<a  class='btn btn-primary'>></a>";
-
-                        }else{
-                            
-                            echo "<a href='index.php?page_no=$get_page_inc' class='btn btn-primary'>></a>";
-                        }
+                        
+                       
+                        
                         ?>
                 </div>
                    
