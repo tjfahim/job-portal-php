@@ -52,7 +52,7 @@
                                         <h4 class="text-white mt-3" >Applicant List</h4>
                                             </a>
                                         </div>
-                                      
+                                        
                                     </div>
                                 </div>
                             </div>

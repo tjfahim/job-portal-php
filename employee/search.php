@@ -102,25 +102,6 @@
                             echo $output;
                         
 
-                        // if($for_pag!=0){
-                        //     if($get_page_dec==0){
-                        //         echo "<a  class='btn btn-primary mr-2'><</a>";
-                        //     }else{
-    
-                        //         echo "<a href='search.php?page_no=$get_page_dec' class='btn btn-primary mr-2' type='button' disabled><</a>";
-                        //     }
-                        //     for($i=2;$i<=$divided;$i++){
-                        //         echo "<a href='search.php?page_no=$i' class='btn btn-primary mr-2'>$i</a>";
-                                
-                        //     }
-                        //     if($get_page_inc>$divided){
-                        //         echo "<a  class='btn btn-primary mr-2'>></a>";
-    
-                        //     }else{
-                                
-                        //         echo "<a href='search.php?page_no=$get_page_inc' class='btn btn-primary'>></a>";
-                        //     }
-                        // }
                         
                     }
                         ?>

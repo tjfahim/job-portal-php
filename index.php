@@ -20,6 +20,27 @@
                         <input type="text" name="query" />
                         <input type="submit" value="Search" />
                     </form>
+
+                    <?php 
+                        $cat="SELECT DISTINCT category FROM category" ;
+                        $ressss=mysqli_query($con,$cat);
+                        $outp='';
+
+                        while($roww = mysqli_fetch_array($ressss)){
+                            $cat_name=$roww['category'];
+                            $outp .="
+                          
+                                <a href='catgory.php?category=$cat_name' class=''><span class='badge badge-secondary'>".$roww['category']."</span></a>
+                                 
+                        
+                            ";
+
+                        }
+                           
+                              echo $outp;
+                        ?>
+                                        <div style="margin-bottom: 19px;margin-top:20px"></div>
+
                     <?php
                     if(isset($_GET['page_no'])){
                         $get_page_no=$_GET['page_no'];
