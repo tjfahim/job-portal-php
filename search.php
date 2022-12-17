@@ -65,7 +65,6 @@
                             $output .="
                             <div class=' '>
                                 <a href='employeelogin.php?id=$job_id' class='text-none text-decoration-none ' >
-                                    <div class='mask' style='background-color: rgba(57, 192, 237, 0.2)'>
                                     <div class='card'>
                                     <div class='card-header'>
                                     <h4 class='card-title '>".$row['title']."</h4>
@@ -95,6 +94,7 @@
             </div>
         </div>
     </div>
-    
+      
+  
 </body>
 </html>

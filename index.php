@@ -11,10 +11,10 @@
     include("include/header.php");
     include("include/connection.php");
      ?>
-    <div class="container">
+      <div class="container">
         <div class="col-md-12 ">
             <div class="row contailer">
-                <div class="col-md-2"></div>
+            <div class="col-md-2"></div>
             <div class="col-md-8 " style="margin-bottom: 59px;margin-top:20px">
                     <form action="search.php" style="margin-bottom: 19px" method="GET">
                         <input type="text" name="query" />
@@ -62,7 +62,6 @@
                             $output .="
                             <div class=' '>
                             <a href='jobdetails.php?id=$job_id' class='text-none text-decoration-none ' >
-                                <div class='mask' style='background-color: rgba(57, 192, 237, 0.2)'>
                                 <div class='card'>
                                 <div class='card-header'>
                                 <h4 class='card-title '>".$row['title']."</h4>
@@ -106,12 +105,15 @@
                             }
                         }
                         
-                       
-                        
                         ?>
             </div>
             </div>
         </div>
     </div>
+    <?php 
+    include("include/footer.php");
+     ?>
+   
+       
 </body>
 </html>

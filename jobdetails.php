@@ -25,7 +25,7 @@
     <div class="container-fluid">
         <div class="col-md-12">
             <div class="row">
-                <div class="col-md-2" style="margin-left: -30px;">
+                <div class="col-md-2" style="margin-left:-1px;">
                 
                 </div>
                 <div class="col-md-10">
@@ -95,9 +95,8 @@
                                             <?php
                                              $job_id=$_GET['id'];
                                             
-                                            echo "<a href='employeelogin.php?id=".$_GET['id']." class='btn btn-primary'>
+                                            echo "<a href='employeelogin.php?id='".$_GET['id']." class='btn btn-primary' style='color:dark;'>
                                             "."Apply</a>";
-                                            
                                             
                                             ?> </td>
                                                                            
@@ -115,6 +114,8 @@
             </div>
         </div>
     </div>
-    
+    <?php 
+        include('include/footer.php')
+    ?>
 </body>
 </html>

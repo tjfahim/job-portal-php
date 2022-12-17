@@ -35,42 +35,36 @@
                             <div class="col-md-3 bg-success m-2" style="height: 140px;">
                                 <div class="col-md-12">
                                     <div class="row">
-                                        <div class="col-md-8">
-                                            <h5 class="text-white mt-3" >Profile</h5>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <a href="profile.php">
-                                            <i class="fas fa-user-circle fa-3x my-4" style="color:white;"></i>
+                                        <div class="col-md-12">
+                                        <a href="profile.php">
+                                        <h4 class="text-white mt-3" >Profile</h4>
                                             </a>
                                         </div>
+                                       
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-3 bg-secondary m-2" style="height: 140px;">
                                 <div class="col-md-12">
                                     <div class="row">
-                                        <div class="col-md-8">
-                                            <h5 class="text-white mt-3" >Applicant List</h5>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <a href="applicant.php">
-                                            <i class="fa fa-calendar fa-3x my-4" style="color:white;"></i>
+                                        <div class="col-md-12">
+                                        <a href="applicant.php">
+                                        <h4 class="text-white mt-3" >Applicant List</h4>
                                             </a>
                                         </div>
+                                      
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-3 bg-secondary m-2" style="height: 140px;">
+                            <div class="col-md-3 bg-primary m-2" style="height: 140px;">
                                 <div class="col-md-12">
                                     <div class="row">
-                                        <div class="col-md-8">
-                                            <h5 class="text-white mt-3" >Jobs</h5>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <a href="applied.php">
-                                            <i class="fa fa-calendar fa-3x my-4" style="color:white;"></i>
+                                        <div class="col-md-12">
+                                        <a href="jobs.php">
+                                        <h4 class="text-white mt-3" >Jobs</h4>
                                             </a>
                                         </div>
+                                     
                                     </div>
                                 </div>
                             </div>
@@ -82,6 +76,7 @@
             </div>
         </div>
     </div>
-    
+  
+  
 </body>
-</html>
+</html> 

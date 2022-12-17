@@ -13,37 +13,51 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/brands.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" type="/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <link rel="stylesheet" href="<?php  ?>">
+    <link rel="stylesheet" href="./asset/css/owl.carousel.min.css">
+            <link rel="stylesheet" href="./asset/css/flaticon.css">
+            <link rel="stylesheet" href="./asset/css/price_rangs.css">
+            <link rel="stylesheet" href="./asset/css/slicknav.css">
+            <link rel="stylesheet" href="./asset/css/animate.min.css">
+            <link rel="stylesheet" href="./asset/css/magnific-popup.css">
+            <link rel="stylesheet" href="./asset/css/fontawesome-all.min.css">
+            <link rel="stylesheet" href="./asset/css/themify-icons.css">
+            <link rel="stylesheet" href="./asset/css/slick.css">
+            <link rel="stylesheet" href="./asset/css/nice-select.css">
+            <link rel="stylesheet" href="./asset/css/style.css">
    
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-info bg-light">
-        <h5 class="text-dark ml-3">Online Job Portal
+<header>
+    <nav class="navbar navbar-expand-lg navbar-info" style="background-color: #010B1D;">
+        <h5 class="text-white ml-3">Online Job Portal
 </h5>
         <div class="mr-auto"></div>
         <ul class="navbar-nav text-dark">
             <?php
             if(isset($_SESSION['admin'])){
                 $user=$_SESSION['admin'];
-                echo'<li class="nav-item"><a href="profile.php" class="nav-link text-dark">'.$user.'</a></li>
-                <li class="nav-item"><a href="logout.php" class="nav-link text-dark">Logout</a></li>';
+                echo'<li class="nav-item"><a href="profile.php" class="nav-link text-white">'.$user.'</a></li>
+                <li class="nav-item"><a href="logout.php" class="nav-link text-white">Logout</a></li>';
 
             }else if(isset($_SESSION['employer'])){
                 $user=$_SESSION['employer'];
-                echo'<li class="nav-item"><a href="profile.php" class="nav-link text-dark">'.$user.'</a></li>
-                <li class="nav-item"><a href="logout.php" class="nav-link text-dark">Logout</a></li>';
+                echo'<li class="nav-item"><a href="profile.php" class="nav-link text-white">'.$user.'</a></li>
+                <li class="nav-item"><a href="logout.php" class="nav-link text-white">Logout</a></li>';
             
             }else if(isset($_SESSION['employee'])){
                 $user=$_SESSION['employee'];
-                echo'<li class="nav-item"><a href="profile.php" class="nav-link text-dark">'.$user.'</a></li>
-                <li class="nav-item"><a href="logout.php" class="nav-link text-dark">Logout</a></li>';
+                echo'<li class="nav-item"><a href="profile.php" class="nav-link text-white">'.$user.'</a></li>
+                <li class="nav-item"><a href="logout.php" class="nav-link text-white">Logout</a></li>';
             }
             else{
                 echo '   
-                <li class="nav-item"><a href="index.php" class="nav-link text-dark">Home</a></li>
-                <li class="nav-item"><a href="adminlogin.php" class="nav-link text-dark">Admin</a></li>
-                <li class="nav-item"><a href="employerlogin.php" class="nav-link text-dark">Employer</a></li>
-                <li class="nav-item"><a href="employeelogin.php" class="nav-link text-dark mr-3">Employee</a></li>';
+                <li class="nav-item"><a href="index.php" class="nav-link text-white">Home</a></li>
+                <li class="nav-item"><a href="adminlogin.php" class="nav-link text-white">Admin</a></li>
+                <li class="nav-item"><a href="employerlogin.php" class="nav-link text-white">Employer</a></li>
+                <li class="nav-item"><a href="employeelogin.php" class="nav-link text-white mr-3">Employee</a></li>';
             }
           
          
@@ -53,4 +67,3 @@
         </ul>
     </nav>
 </body>
-</html>
