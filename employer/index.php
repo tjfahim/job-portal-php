@@ -8,16 +8,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jobs</title>
+    <title>Employer Dashboard</title>
 </head>
 <body>
+    
     <?php 
     include("../include/header.php");
     include("../include/connection.php");
 
-    if(isset($_POST['send'])){
-       
-    }
+    
     
     ?>
 
@@ -30,10 +29,54 @@
                 ?>  
                 </div>
                 <div class="col-md-10">
-                   <div></div>
+                    <h4 class="my-2">Employer Dashboard</h4>
+                    <div class="col-md-12 my-1">
+                        <div class="row">
+                            <div class="col-md-3 bg-success m-2" style="height: 140px;">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                        <a href="profile.php">
+                                        <h4 class="text-white mt-3" >Profile</h4>
+                                            </a>
+                                        </div>
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 bg-secondary m-2" style="height: 140px;">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                        <a href="applicant.php">
+                                        <h4 class="text-white mt-3" >Applicant List</h4>
+                                            </a>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 bg-primary m-2" style="height: 140px;">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                        <a href="jobs.php">
+                                        <h4 class="text-white mt-3" >Jobs</h4>
+                                            </a>
+                                        </div>
+                                     
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            
+                        </div>
+                     </div>
+                   
             </div>
         </div>
     </div>
-    
+  
+  
 </body>
-</html>
+</html> 

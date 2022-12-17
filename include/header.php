@@ -32,8 +32,8 @@
 <body>
 <header>
     <nav class="navbar navbar-expand-lg navbar-info" style="background-color: #010B1D;">
-        <h5 class="text-white ml-3">Online Job Portal
-</h5>
+        <a href="index.php"><h5 class="text-white ml-3">Online Job Portal
+</h5></a>
         <div class="mr-auto"></div>
         <ul class="navbar-nav text-dark">
             <?php
