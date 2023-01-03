@@ -42,9 +42,12 @@
                                                 $employer=mysqli_query($con,$employer);
                                                 $row=mysqli_num_rows($employer);
                                             ?>
+                                            <a href="employer.php" style="text-decoration: none;">
                                             <h5 class="my-2 text-white" style="font-size:30px;"> <?php echo $row ?> </h5>
                                             <h5 class="text-white">Total</h5>
                                             <h5 class="text-white">Employer</h5>
+                                            </a>
+                                           
                                         </div>
                                         <div class="col-md-4">
                                             <a href="employer.php">
@@ -64,9 +67,12 @@
                                                  $employee=mysqli_query($con,$employee);
                                                  $row=mysqli_num_rows($employee);
                                             ?>
-                                            <h5 class="my-2 text-white" style="font-size:30px;"> <?php echo $row ?> </h5>
+                                             <a href="employee.php" style="text-decoration: none;">
+                                             <h5 class="my-2 text-white" style="font-size:30px;"> <?php echo $row ?> </h5>
                                             <h5 class="text-white">Total</h5>
                                             <h5 class="text-white">Employee</h5>
+                                          </a>  
+                                           
                                         </div>
                                         <div class="col-md-4">
                                             <a href="employee.php">
@@ -87,8 +93,11 @@
                                          $row=mysqli_num_rows($report);
                                                 
                                             ?>
-                                            <h5 class="my-2 text-white" style="font-size:30px;"> <?php echo $row ?> </h5>
+                                              <a href="report.php" style="text-decoration: none;">
+                                              <h5 class="my-2 text-white" style="font-size:30px;"> <?php echo $row ?> </h5>
                                             <h5 class="text-white">Report</h5>
+                                          </a>  
+                                         
                                         </div>
                                         <div class="col-md-4">
                                             <a href="report.php">
@@ -109,8 +118,11 @@
                                                 $row=mysqli_num_rows($employer_re);
                                                        
                                             ?>
-                                            <h5 class="my-2 text-white" style="font-size:30px;"> <?php echo $row ?> </h5>
+                                              <a href="employer_req.php" style="text-decoration: none;">
+                                              <h5 class="my-2 text-white" style="font-size:30px;"> <?php echo $row ?> </h5>
                                             <h5 class="text-white">Employer Request</h5>
+                                          </a>  
+                                           
                                         </div>
                                         <div class="col-md-4">
                                             <a href="employer_req.php">
@@ -126,10 +138,16 @@
                                     <div class="row">
                                         <div class="col-md-8">
                                         <?php 
-                                                
+                                                $total_job="SELECT * FROM jobs WHERE status='active'";
+                                                $total_job=mysqli_query($con,$total_job);
+                                                $row=mysqli_num_rows($total_job);
+                                                       
                                             ?>
-                                            <h5 class="my-2 text-white" style="font-size:30px;"> <?php echo 0 ?> </h5>
+                                              <a href="job.php" style="text-decoration: none;">
+                                              <h5 class="my-2 text-white" style="font-size:30px;"> <?php echo $row ?> </h5>
                                             <h5 class="text-white">Total Job</h5>
+                                          </a>  
+                                       
                                         </div>
                                         <div class="col-md-4">
                                             <a href="job.php">

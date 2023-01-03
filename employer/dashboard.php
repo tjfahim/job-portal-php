@@ -36,7 +36,7 @@
                                 <div class="col-md-12">
                                     <div class="row">
                                         <div class="col-md-12">
-                                        <a href="profile.php">
+                                        <a href="profile.php" style="text-decoration: none;">
                                         <h4 class="text-white mt-3" >Profile</h4>
                                             </a>
                                         </div>
@@ -48,7 +48,7 @@
                                 <div class="col-md-12">
                                     <div class="row">
                                         <div class="col-md-12">
-                                        <a href="applicant.php">
+                                        <a href="applicant.php" style="text-decoration: none;">
                                         <h4 class="text-white mt-3" >Applicant List</h4>
                                             </a>
                                         </div>
@@ -60,8 +60,8 @@
                                 <div class="col-md-12">
                                     <div class="row">
                                         <div class="col-md-12">
-                                        <a href="jobs.php">
-                                        <h4 class="text-white mt-3" >Jobs</h4>
+                                        <a href="jobs.php" style="text-decoration: none;">
+                                        <h4 class="text-white mt-3" >Job</h4>
                                             </a>
                                         </div>
                                      

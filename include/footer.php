@@ -20,9 +20,8 @@
                                 <h4  class="text-white">Contact Info</h4>
                                 <ul>
                                     <li>
-                                    <p>Address :Bogura,Bangladesh</p>
+                                    <p>Address :Dhaka,Bangladesh</p>
                                     </li>
-                                    <li><a href="#">Phone : +88017 44338899</a></li>
                                     <li><a href="#">Email : info@pubproject.com</a></li>
                                 </ul>
                             </div>
@@ -40,7 +39,6 @@
                                  <a href="facebook.com"><i class="fab fa-facebook-f"></i></a>
                                  <a href="twitter.com"><i class="fab fa-twitter"></i></a>
                                  <a href="google.com"><i class="fas fa-globe"></i></a>
-                                 <a href="#"><i class="fab fa-behance"></i></a>
                              </div>
                          </div>
                              </div>
@@ -54,26 +52,42 @@
                     <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
                         <!-- logo -->
                         <div class="footer-logo mb-20">
-                        <a href="index.html"><img src="asset/img/logo/logo2_footer.png" alt=""></a>
+                        <a href="index.php"><img src="asset/img/logo/logo2_footer.png" alt=""></a>
                         </div>
                     </div>
                     <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
                     <div class="footer-tittle-bottom">
+                    <?php 
+                                                $employee="SELECT * FROM employee";
+                                                $employee=mysqli_query($con,$employee);
+                                                $row=mysqli_num_rows($employee);
+                                            ?>
                         <p>Total Employee</p>
-                        <span>5000+</span>
+                        <span><?php echo $row ?></span>
                     </div>
                     </div>
                     <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
                         <div class="footer-tittle-bottom">
+                        <?php 
+                                                $employer="SELECT * FROM employer WHERE status='active'";
+                                                $employer=mysqli_query($con,$employer);
+                                                $row=mysqli_num_rows($employer);
+                                            ?>
                             <p>Total Employer</p>
-                            <span>451</span>
+                            <span><?php echo $row ?></span>
                         </div>
                     </div>
                     <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
                         <!-- Footer Bottom Tittle -->
                         <div class="footer-tittle-bottom">
+                        <?php 
+                                                $total_job="SELECT * FROM jobs WHERE status='active'";
+                                                $total_job=mysqli_query($con,$total_job);
+                                                $row=mysqli_num_rows($total_job);
+                                                       
+                                            ?>
                             <p>Total Job</p>
-                            <span>568</span>
+                            <span><?php echo $row ?></span>
                         </div>
                     </div>
                </div>
@@ -82,7 +96,7 @@
         <!-- footer-bottom area -->
         <div class="footer-bottom-area footer-bg">
             <div class="container">
-                <div class="footer-border">
+                <div class="">
                      <div class="row d-flex justify-content-between align-items-center">
                          <div class="col-xl-10 col-lg-10 ">
                              <div class="footer-copy-right">
